@@ -4,7 +4,7 @@
  * [Interface Type](https://github.com/IT-nhan326/startToLearnTypeScript/blob/main/README.md#interface-types)
  * [Generic Type](https://github.com/IT-nhan326/startToLearnTypeScript/blob/main/README.md#2-composing-type--create-complex-types-by-combining-simple-ones)
  * [Best Practice of TS](https://github.com/IT-nhan326/startToLearnTypeScript/blob/main/README.md#3-best-practice-of-typescript)
- * [Refferences](https://github.com/IT-nhan326/startToLearnTypeScript/blob/main/README.md#references)
+ * [References](https://github.com/IT-nhan326/startToLearnTypeScript/blob/main/README.md#references)
 
 ## [TypeScript](https://www.typescriptlang.org) : 
  * TypeScript offers all of JS's features + TypeScript's type system
