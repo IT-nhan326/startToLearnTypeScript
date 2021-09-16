@@ -1,5 +1,10 @@
 # startToLearnTypeScript
 
+## Main Content:
+ * [Interface Type](https://github.com/IT-nhan326/startToLearnTypeScript/blob/main/README.md#interface-types)
+ * [Generic Type]()
+ * [Best Practice of TS]()
+
 ## [TypeScript](https://www.typescriptlang.org) : 
  * TypeScript offers all of JS's features + TypeScript's type system
  * TypeScript check language primitives like `string` and `number` which will highlight unexpected behavior in the code => lowering the chance of bugs
