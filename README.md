@@ -141,7 +141,41 @@ _Use types `number`, `string`, `boolean`, `symbol`, `object`
 
 
 ### 3. Best Practice of TypeScript
+1. Use correct data type annotaion (void 'any')
+2. Enable stick check on (configure `strict` in tsconfig file)
+3. Use `let` instead of `var`
+4. General types - prefer to use [primitive types](https://github.com/IT-nhan326/startToLearnTypeScript/blob/main/README.md#2-composing-type--create-complex-types-by-combining-simple-ones)
+5. Callback types : using `void` for callback types instead of `any` to prevent unchecked
+```
+function cal(x: () => any/void ){
+   var y = x()
+   y.doAnything()  => ok but unchecked with any, this will throw error with void
+}
+```
+6. Function parameters :  
+* function with many parameters with the same type => change function to take object parameter
+* calling object to prevent calling with wrong order
+```
+function cal(x: string, y: string, z: string){}
+cal(x,y,z)
+=>Replace with:
+function cal(obj: {x: string, y: string, z: string})
+cal({x,y,z}) will easier to spot mistake and review code
+```
+7. Don't use "bind" : `bind` returns `any`
 
+8. Non exising value - prefer to use undefinded : 
+* When a value on object or function parameter is missing, can use TypeScript optional `?` to say so
+* TypeScript `?` operator doesn't handle null value
+
+9. Use tuples for fixed length arrays
+10. Use type aliases in repetitive data types : 
+```
+type Details = {name: string, age: number}
+let man: Details = {name = 'Newgate', age = 25}
+let woman: Details = {name = "Katy", age = 20}
+```
+11. Use access modifiers for class members : protected | private | default | public
 
 
 ## References:
@@ -149,3 +183,4 @@ _Use types `number`, `string`, `boolean`, `symbol`, `object`
 **React - The Complete Guide (incl Hooks, React Router, Redux)** of **Maximilian Schwarzmüller** on **Udemy**
 
   2. [typescriptlang.org](https://www.typescriptlang.org/)
+  3. [TypeScript Best Practice](https://engineering.zalando.com/posts/2019/02/typescript-best-practices.html)
