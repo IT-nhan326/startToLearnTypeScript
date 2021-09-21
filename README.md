@@ -13,7 +13,7 @@
 ### 1. Defining Types :
 ### Interface Types
   * Explicitly describe the object's shape using `interface` declaration : 
-```
+```typescript
 * interface User { 
      name : string ; 
      id : number; 
@@ -28,7 +28,7 @@
 ```
 
   * Interface declaration with classes : 
-```
+```typescript
 interface User {
    name: string;
    id: number;
@@ -47,14 +47,14 @@ class UserAccount {
 ```
 
  * Use interfaces to annotate parameters and return value to functions : 
-```
+```typescript
 function getAdminUser(): {...}
 
 function deleteUser(user: User){...}
 ```
 
  * Extending an interface
-```
+```typescript
 interface Animal { name: string }
 interface Bear extends Animal { honey: boolean }
 const bear = getBear()
@@ -73,12 +73,12 @@ bear.honey
 * `Function Types` :
 
 _Add return type annotations : 
-```
+```typescript
 function getFavoriteNumber(): number { return 26 }
 ```
 
 _Parameter Type Annotations :  
-```
+```typescript
 function greet(name: string) {
    console.log('Hello," + name.toUpperCase()+ " !!")
 }
@@ -88,7 +88,7 @@ _Anonymous Functions : TypeScript can determine the type without your declaratio
 * `Object Types` : Prefer to any JS value with properties
 
 _Function takes a point-lke object :
-```
+```typescript
 function printCoord(pt: { x: number; y: number}){
     console.log("The coordinate's x value is " + pt.x)
     console.log("The coordinate's y value is " + pt.y)
@@ -98,14 +98,15 @@ printCoord({ x : 3 , y : 7 })
 => The type part of each property is optional. If it is not specified, type will be `any`
 
 _Optional Properties : Object types can also specify that properties are `optional`. To do this, add `?` after the property name
-```
+```typescript
 function printName(obj: { first: string; last?: string}){...}
 => both OK
 printName({ first: Newgate })
 printName({ first: Newgate, last: "Phan" })
 ```
+
 ***Note*** : remember to check for `optional` properties before using it because its value maybe `undefine`
-```
+```typescript
 to check for undefine val with JS mordern syntax : 
 => console.log(obj.last?.toUpperCase())
 ```
@@ -113,7 +114,7 @@ to check for undefine val with JS mordern syntax :
 
  #### 2. Composing Type : create complex types by combining simple ones
   1. Union Types : 
-```
+```typescript
 function printID( id: number | string){console.log("Your ID is " + id)}
 => These are ok options :
 printID(101)
@@ -123,7 +124,7 @@ printID({ id: 2233 })
 ```
 
 _TypeScript will only allow you to do things with the Union if that thins is valid for **every member** of the Union:
-```
+```typescript
 function printID( id: number | string){
     console.log(id.toUpperCase())
 }
@@ -146,7 +147,7 @@ _Use types `number`, `string`, `boolean`, `symbol`, `object`
 3. Use `let` instead of `var`
 4. General types - prefer to use [primitive types](https://github.com/IT-nhan326/startToLearnTypeScript/blob/main/README.md#2-composing-type--create-complex-types-by-combining-simple-ones)
 5. Callback types : using `void` for callback types instead of `any` to prevent unchecked
-```
+```typescript
 function cal(x: () => any/void ){
    var y = x()
    y.doAnything()  => ok but unchecked with any, this will throw error with void
@@ -155,7 +156,7 @@ function cal(x: () => any/void ){
 6. Function parameters :  
 * function with many parameters with the same type => change function to take object parameter
 * calling object to prevent calling with wrong order
-```
+```typescript
 function cal(x: string, y: string, z: string){}
 cal(x,y,z)
 =>Replace with:
@@ -170,7 +171,7 @@ cal({x,y,z}) will easier to spot mistake and review code
 
 9. Use tuples for fixed length arrays
 10. Use type aliases in repetitive data types : 
-```
+```typescript
 type Details = {name: string, age: number}
 let man: Details = {name = 'Newgate', age = 25}
 let woman: Details = {name = "Katy", age = 20}
